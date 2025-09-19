@@ -20,13 +20,13 @@ body {
 /* Header */
 header.title h1 {
   text-transform: uppercase;
-  letter-spacing: 5px; /* Adjust as needed for desired spacing */
+  letter-spacing: 5px; 
 }
 
 header.title h2 {
   color: #006eb6;
   text-transform: uppercase;
-  letter-spacing: 3px; /* Adjust as needed for desired spacing */
+  letter-spacing: 3px; 
 }
 
 /* Main Content */
