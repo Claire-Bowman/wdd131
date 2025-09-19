@@ -1,0 +1,57 @@
+/* Universal Styles */
+body {
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+  background-color: #eee;
+  text-align: center;
+}
+
+/* Page Container */
+.content {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 50px auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 600px;
+}
+
+/* Header */
+header.title h1 {
+  text-transform: uppercase;
+  letter-spacing: 5px; /* Adjust as needed for desired spacing */
+}
+
+header.title h2 {
+  color: #006eb6;
+  text-transform: uppercase;
+  letter-spacing: 3px; /* Adjust as needed for desired spacing */
+}
+
+/* Main Content */
+main p {
+  text-align: left;
+  line-height: 1.5;
+  padding: 0 20px;
+}
+
+.does-list {
+  text-align: left;
+  list-style-position: inside;
+  margin: 20px auto;
+  width: 90%;
+  line-height: 1.5;
+}
+
+/* Footer */
+footer {
+  margin-top: 30px;
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+}
