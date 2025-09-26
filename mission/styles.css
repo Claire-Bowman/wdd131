@@ -2,39 +2,39 @@
 body {
     font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
-    background-color: #eee; /* Light gray background for light theme */
+    background-color: #eee; 
     text-align: center;
 }
 
 /* Page Container (Light Theme) */
 .content {
-    background-color: #fff; /* White background for the content box */
+    background-color: #fff; 
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 50px auto;
     padding: 20px;
     width: 80%;
-    max-width: 600px; /* Limited to 600px max width */
+    max-width: 600px; 
 }
 
 /* Header (Light Theme) */
 header.title h1 {
     text-transform: uppercase;
-    letter-spacing: 5px; /* Spaced out letters */
+    letter-spacing: 5px; 
 }
 
 header.title h2 {
-    color: #006eb6; /* BYU-I blue for subtitle */
+    color: #006eb6; 
     text-transform: uppercase;
-    letter-spacing: 3px; /* Spaced out letters */
+    letter-spacing: 3px; 
 }
 
 /* Main Content (Light Theme) */
 main p {
-    text-align: left; /* Paragraphs are left-aligned */
-    line-height: 1.5; /* Increased line height */
+    text-align: left; 
+    line-height: 1.5; 
     padding: 0 20px;
-    color: #333; /* Dark text for contrast */
+    color: #333; 
 }
 
 main p em {
@@ -64,7 +64,7 @@ footer {
 }
 
 .logo {
-    width: 150px; /* Resize the logo */
+    width: 150px; 
     height: auto;
 }
 
@@ -74,34 +74,32 @@ footer {
 
 /* Base Dark Theme (body) */
 .dark {
-    background-color: #333; /* Dark grey background */
-    color: white; /* Default font color is white */
+    background-color: #1d1d1d; 
+    color: white; 
 }
 
 /* Dark Theme Container */
 .dark .content {
-    background-color: #444; /* Slightly lighter dark shade for the content box */
+    background-color: #444; 
     box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
 }
 
 /* Dark Theme Header Titles */
 .dark header.title h1 {
-    color: #eee; /* Light color for main title */
+    color: #eee; 
 }
 
-/* Dark Theme Subtitle Color Fix for Accessibility */
-/* Using a lighter BYU-I accent blue (#4c979c) for better contrast */
 .dark header.title h2 {
     color: #4c979c;
 }
 
 /* Dark Theme Paragraphs and List Items */
 .dark main p {
-    color: #ccc; /* Lighter grey for main body text */
+    color: #ccc; 
 }
 
 .dark main p em {
-    color: #4c979c; /* Lighter blue for the emphasis text */
+    color: #4c979c; 
 }
 
 .dark .does-list li {
@@ -112,7 +110,6 @@ footer {
     border-top: 1px solid #555;
 }
 
-/* Theme Selector Dropdown Styling (For visibility/positioning) */
 #theme-selector {
     position: absolute; 
     top: 20px;
