@@ -1,57 +1,124 @@
-/* Universal Styles */
+/* Universal Styles (Light Theme Base) */
 body {
-  font-size: 20px;
-  font-family: 'Times New Roman', Times, serif;
-  background-color: #eee;
-  text-align: center;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #eee; /* Light gray background for light theme */
+    text-align: center;
 }
 
-/* Page Container */
+/* Page Container (Light Theme) */
 .content {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 50px auto;
-  padding: 20px;
-  width: 80%;
-  max-width: 600px;
+    background-color: #fff; /* White background for the content box */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 50px auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px; /* Limited to 600px max width */
 }
 
-/* Header */
+/* Header (Light Theme) */
 header.title h1 {
-  text-transform: uppercase;
-  letter-spacing: 5px; 
+    text-transform: uppercase;
+    letter-spacing: 5px; /* Spaced out letters */
 }
 
 header.title h2 {
-  color: #006eb6;
-  text-transform: uppercase;
-  letter-spacing: 3px; 
+    color: #006eb6; /* BYU-I blue for subtitle */
+    text-transform: uppercase;
+    letter-spacing: 3px; /* Spaced out letters */
 }
 
-/* Main Content */
+/* Main Content (Light Theme) */
 main p {
-  text-align: left;
-  line-height: 1.5;
-  padding: 0 20px;
+    text-align: left; /* Paragraphs are left-aligned */
+    line-height: 1.5; /* Increased line height */
+    padding: 0 20px;
+    color: #333; /* Dark text for contrast */
+}
+
+main p em {
+    font-weight: bold;
+    font-style: normal;
+    color: #006eb6;
 }
 
 .does-list {
-  text-align: left;
-  list-style-position: inside;
-  margin: 20px auto;
-  width: 90%;
-  line-height: 1.5;
+    text-align: left;
+    list-style-position: inside;
+    margin: 20px auto;
+    width: 90%;
+    line-height: 1.5;
+    color: #555;
 }
 
-/* Footer */
+.does-list li {
+    margin-bottom: 10px;
+}
+
+/* Footer & Logo */
 footer {
-  margin-top: 30px;
-  border-top: 1px solid #ddd;
-  padding-top: 20px;
+    margin-top: 30px;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
 }
 
 .logo {
-  width: 150px;
-  height: auto;
+    width: 150px; /* Resize the logo */
+    height: auto;
+}
+
+/* --------------------
+    DARK THEME STYLES (Applies when .dark is on the body)
+-------------------- */
+
+/* Base Dark Theme (body) */
+.dark {
+    background-color: #333; /* Dark grey background */
+    color: white; /* Default font color is white */
+}
+
+/* Dark Theme Container */
+.dark .content {
+    background-color: #444; /* Slightly lighter dark shade for the content box */
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+/* Dark Theme Header Titles */
+.dark header.title h1 {
+    color: #eee; /* Light color for main title */
+}
+
+/* Dark Theme Subtitle Color Fix for Accessibility */
+/* Using a lighter BYU-I accent blue (#4c979c) for better contrast */
+.dark header.title h2 {
+    color: #4c979c;
+}
+
+/* Dark Theme Paragraphs and List Items */
+.dark main p {
+    color: #ccc; /* Lighter grey for main body text */
+}
+
+.dark main p em {
+    color: #4c979c; /* Lighter blue for the emphasis text */
+}
+
+.dark .does-list li {
+    color: #ccc;
+}
+
+.dark footer {
+    border-top: 1px solid #555;
+}
+
+/* Theme Selector Dropdown Styling (For visibility/positioning) */
+#theme-selector {
+    position: absolute; 
+    top: 20px;
+    right: 20px;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
 }
