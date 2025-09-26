@@ -1,4 +1,4 @@
-// With JavaScript select the select element out of the DOM.
+
 const themeSelector = document.querySelector('#theme-selector');
 const bodyElement = document.querySelector('body');
 const logoElement = document.querySelector('#logo');
@@ -7,10 +7,7 @@ const logoElement = document.querySelector('#logo');
 const BLUE_LOGO_SRC = "byui-logo_blue.webp";
 const WHITE_LOGO_SRC = "byui-logo_white.png";
 
-/**
- * Handles the theme change event.
- * Toggles the 'dark' class on the body and swaps the logo image.
- */
+
 function changeTheme() {
     // Check to see what the current value of our select is.
     const selectedTheme = themeSelector.value;
