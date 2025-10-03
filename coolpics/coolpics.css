@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Mooli&display=swap");
+
+:root {
+  --primary-color: #9370db; 
+  --text-light: #ffffff;
+  --accent-color: #0000ff;
+  --primary-font: Arial, Helvetica, sans-serif;
+  --secondary-font: "Mooli", sans-serif;
+}
+
+/* Global styles */
+body {
+  font-family: var(--primary-font);
+  background-color: #ececec;
+  margin: 0;
+  text-align: center;
+}
+
+/* Header */
+header {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  padding: 1rem 0;
+}
+
+header h1 {
+  font-family: var(--secondary-font);
+  margin: 0;
+}
+
+/* Navigation */
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--text-light);
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+  color: var(--accent-color)
+}
+
+/* Gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-items: center;
+  padding: 1rem;
+}
+
+.gallery img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+  padding: 10px; /* Space inside figure for the border/shadow */
+    background: #fff;
+    /* Simple box shadow for the 'raised' paper effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+footer {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  padding: 0.5rem;
+  font-size: 0.9em;
+}
+
+.menu-button {
+    display: none;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex; /* Horizontal layout */
+    justify-content: center;
+    gap: 2rem; /* Space between nav links */
+    padding-bottom: 1rem; /* Space below the nav links */
+    padding-top: 1rem;
+}
+
