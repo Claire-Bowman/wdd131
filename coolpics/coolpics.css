@@ -1,92 +1,302 @@
 @import url("https://fonts.googleapis.com/css2?family=Mooli&display=swap");
 
 :root {
-  --primary-color: #9370db; 
-  --text-light: #ffffff;
-  --accent-color: #0000ff;
+  --primary-color: #52489c;
+  --secondary-color: #59c3c3;
+  --accent-color: #f45b69;
+  --text-dark: #333;
+  --text-light: #ebebeb;
   --primary-font: Arial, Helvetica, sans-serif;
   --secondary-font: "Mooli", sans-serif;
 }
 
 /* Global styles */
-body {
-  font-family: var(--primary-font);
-  background-color: #ececec;
-  margin: 0;
-  text-align: center;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-/* Header */
-header {
-  background-color: var(--primary-color);
-  color: var(--text-light);
-  padding: 1rem 0;
+body {
+    font-family: var(--primary-font);
+    font-size: 1em; /* Base font size reduced to match the mockup's scale */
+    line-height: 1.5;
+    color: var(--text-dark);
+    background-color: var(--text-light); /* White background */
+}
+
+/* Typography and Links */
+h1, h2 {
+    font-family: var(--secondary-font);
+    color: var(--text-dark);
 }
 
 header h1 {
-  font-family: var(--secondary-font);
-  margin: 0;
+    font-size: 3em; /* Increased size to match the mockup */
+    padding: 0.5rem 0;
 }
 
-/* Navigation */
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
+h2 {
+    text-align: center;
+    padding: 1.5rem 0 1rem; /* More padding above the headline */
+    font-size: 1.5em;
+    font-weight: normal; /* Match the slightly lighter look */
 }
 
-nav a {
-  text-decoration: none;
-  color: var(--text-light);
-  font-weight: bold;
+a:link,
+a:visited {
+    /* Default link color for the mobile menu on the dark header */
+    color: var(--text-light); 
+    text-decoration: none;
+    transition: color 0.3s;
 }
 
-nav a:hover {
-  text-decoration: underline;
-  color: var(--accent-color)
+a:hover {
+    color: var(--secondary-color); /* Lighter purple on hover for the menu */
 }
 
-/* Gallery */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  justify-items: center;
-  padding: 1rem;
+/* Layout Containers */
+header {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    display: flex;
+    flex-direction: column; /* Stack H1 and Nav vertically (Mobile-First) */
+    align-items: center;
+    padding: 0; 
+    text-align: center;
+    position: relative; /* Needed for positioning mobile nav */
 }
 
-.gallery img {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-  padding: 10px; /* Space inside figure for the border/shadow */
-    background: #fff;
-    /* Simple box shadow for the 'raised' paper effect */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+header h1 {
+    color: var(--text-light);
+    padding-top: 2rem; /* Add space above the title */
 }
 
-/* Footer */
+main {
+    padding: 0 1rem;
+}
+
 footer {
-  background-color: var(--primary-color);
-  color: var(--text-light);
-  padding: 0.5rem;
-  font-size: 0.9em;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.8em; /* Smaller copyright text */
+    margin-top: 3rem; /* Push footer down from the gallery */
 }
+
+/* Image Responsiveness */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --- Mobile Navigation (Small Screen Default) --- */
 
 .menu-button {
-    display: none;
+    /* Hide the button by default in this desktop-styled setup, but will be shown below 1000px */
+    display: none; 
+    background: none;
+    border: none;
+    color: var(--text-light);
+    font-size: 1.2em;
+    font-family: var(--secondary-font);
+    cursor: pointer;
+    padding: 0.5rem 0.75rem;
+}
+
+.main-nav {
+    /* Default nav styling for mobile */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--secondary-color);
+    z-index: 5;
+    display: none; /* Hidden by default on mobile */
+}
+
+.main-nav.visible {
+    display: block; /* Shown when JavaScript toggles the 'visible' class */
 }
 
 .main-nav ul {
     list-style: none;
-    display: flex; /* Horizontal layout */
-    justify-content: center;
-    gap: 2rem; /* Space between nav links */
-    padding-bottom: 1rem; /* Space below the nav links */
-    padding-top: 1rem;
+    padding: 0;
 }
 
+.main-nav li a {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: var(--text-light);
+    background-color: var(--secondary-color);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.main-nav li a:hover {
+    background-color: var(--accent-color);
+}
+
+/* --- Gallery Styling (Mobile: Single Column) --- */
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.gallery figure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* For mobile, setting a base height helps with aspect ratio */
+    height: 350px; 
+}
+
+.gallery img {
+    width: 100%; 
+    height: 100%;
+    object-fit: cover;
+    border: 1px solid #ccc; 
+}
+
+
+/* ========================================================== */
+/* Medium Screens (min-width: 700px) */
+/* ========================================================== */
+@media screen and (min-width: 700px) {
+    .gallery {
+        /* Switch from one column to two columns */
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+        max-width: 700px; 
+    }
+}
+
+/* ========================================================== */
+/* Large Screens (min-width: 1000px) - Match Mockup */
+/* ========================================================== */
+@media screen and (min-width: 1000px) {
+    /* Hide the mobile menu button */
+    .menu-button {
+        display: none;
+    }
+
+    header {
+        flex-direction: column; /* Revert to column to stack Title/Nav */
+        justify-content: center;
+        align-items: center;
+    }
+    
+    header h1 {
+        padding-bottom: 0;
+    }
+    
+    /* Horizontal Navigation - Match Mockup */
+    .main-nav {
+        display: block; /* Ensure nav is visible */
+        position: static; /* Remove mobile positioning */
+        width: auto;
+        background: none;
+    }
+
+    .main-nav ul {
+        display: flex; /* Make links horizontal */
+        justify-content: center;
+        gap: 2rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+    
+    .main-nav li a {
+        color: var(--text-dark); /* Dark text for links against the purple bar in the mockup */
+        text-decoration: underline;
+        padding: 0;
+        background: none;
+        border: none;
+    }
+
+    .main-nav li a:hover {
+        color: var(--accent-color);
+        background: none;
+    }
+
+    .gallery {
+        /* Switch to three columns */
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 900px;
+        gap: 1rem;
+    }
+    
+    .gallery figure {
+        height: 250px; /* Adjusted height for 3x3 grid look */
+    }
+}
+
+/* --- Menu Toggle Class for JavaScript --- */
+/* Used to explicitly hide the menu on mobile devices */
+.hide {
+    display: none !important; 
+}
+
+/* --- Image Viewer Modal Styling --- */
+
+/* Style the dialog element itself (the modal backdrop) */
+dialog {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border: none;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 10; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20vh; 
+}
+
+/* Style the image inside the modal */
+dialog img {
+    width: 90%; 
+    max-height: 60vh;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+/* Style the close button */
+.close-viewer {
+    position: absolute;
+    top: 15vh;
+    right: 5vw; 
+    background: white;
+    color: var(--text-dark);
+    border: 1px solid var(--text-dark);
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 1.2em;
+    line-height: 1;
+    border-radius: 3px;
+    z-index: 11;
+}
+
+/* Large screen adjustments for the modal */
+@media screen and (min-width: 700px) {
+    dialog img {
+        width: 70%; 
+        max-width: 800px;
+        max-height: 80vh;
+    }
+    
+    .close-viewer {
+        /* Position to the right of the centered image container */
+        right: calc(50% - 350px);
+    }
+}
