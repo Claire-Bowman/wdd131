@@ -19,10 +19,10 @@
 
 body {
     font-family: var(--primary-font);
-    font-size: 1em; /* Base font size reduced to match the mockup's scale */
+    font-size: 1em; 
     line-height: 1.5;
     color: var(--text-dark);
-    background-color: var(--text-light); /* White background */
+    background-color: var(--text-light); 
 }
 
 /* Typography and Links */
@@ -32,27 +32,26 @@ h1, h2 {
 }
 
 header h1 {
-    font-size: 3em; /* Increased size to match the mockup */
+    font-size: 3em; 
     padding: 0.5rem 0;
 }
 
 h2 {
     text-align: center;
-    padding: 1.5rem 0 1rem; /* More padding above the headline */
+    padding: 1.5rem 0 1rem; 
     font-size: 1.5em;
-    font-weight: normal; /* Match the slightly lighter look */
+    font-weight: normal; 
 }
 
 a:link,
 a:visited {
-    /* Default link color for the mobile menu on the dark header */
     color: var(--text-light); 
     text-decoration: none;
     transition: color 0.3s;
 }
 
 a:hover {
-    color: var(--secondary-color); /* Lighter purple on hover for the menu */
+    color: var(--secondary-color); 
 }
 
 /* Layout Containers */
@@ -60,16 +59,16 @@ header {
     background-color: var(--primary-color);
     color: var(--text-light);
     display: flex;
-    flex-direction: column; /* Stack H1 and Nav vertically (Mobile-First) */
+    flex-direction: column; 
     align-items: center;
     padding: 0; 
     text-align: center;
-    position: relative; /* Needed for positioning mobile nav */
+    position: relative; 
 }
 
 header h1 {
     color: var(--text-light);
-    padding-top: 2rem; /* Add space above the title */
+    padding-top: 2rem; 
 }
 
 main {
@@ -81,8 +80,8 @@ footer {
     color: var(--text-light);
     text-align: center;
     padding: 1rem;
-    font-size: 0.8em; /* Smaller copyright text */
-    margin-top: 3rem; /* Push footer down from the gallery */
+    font-size: 0.8em; 
+    margin-top: 3rem; 
 }
 
 /* Image Responsiveness */
@@ -95,7 +94,6 @@ img {
 /* --- Mobile Navigation (Small Screen Default) --- */
 
 .menu-button {
-    /* Hide the button by default in this desktop-styled setup, but will be shown below 1000px */
     display: none; 
     background: none;
     border: none;
@@ -107,18 +105,17 @@ img {
 }
 
 .main-nav {
-    /* Default nav styling for mobile */
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
     background-color: var(--secondary-color);
     z-index: 5;
-    display: none; /* Hidden by default on mobile */
+    display: none; 
 }
 
 .main-nav.visible {
-    display: block; /* Shown when JavaScript toggles the 'visible' class */
+    display: block; 
 }
 
 .main-nav ul {
@@ -155,7 +152,6 @@ img {
     padding: 10px;
     background: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* For mobile, setting a base height helps with aspect ratio */
     height: 350px; 
 }
 
@@ -172,7 +168,6 @@ img {
 /* ========================================================== */
 @media screen and (min-width: 700px) {
     .gallery {
-        /* Switch from one column to two columns */
         grid-template-columns: 1fr 1fr;
         gap: 1.5rem;
         max-width: 700px; 
@@ -183,13 +178,12 @@ img {
 /* Large Screens (min-width: 1000px) - Match Mockup */
 /* ========================================================== */
 @media screen and (min-width: 1000px) {
-    /* Hide the mobile menu button */
     .menu-button {
         display: none;
     }
 
     header {
-        flex-direction: column; /* Revert to column to stack Title/Nav */
+        flex-direction: column; 
         justify-content: center;
         align-items: center;
     }
@@ -200,14 +194,14 @@ img {
     
     /* Horizontal Navigation - Match Mockup */
     .main-nav {
-        display: block; /* Ensure nav is visible */
-        position: static; /* Remove mobile positioning */
+        display: block; 
+        position: static; 
         width: auto;
         background: none;
     }
 
     .main-nav ul {
-        display: flex; /* Make links horizontal */
+        display: flex; 
         justify-content: center;
         gap: 2rem;
         padding-top: 1rem;
@@ -215,7 +209,7 @@ img {
     }
     
     .main-nav li a {
-        color: var(--text-dark); /* Dark text for links against the purple bar in the mockup */
+        color: var(--text-dark); 
         text-decoration: underline;
         padding: 0;
         background: none;
