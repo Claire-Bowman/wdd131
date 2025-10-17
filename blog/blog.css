@@ -1,0 +1,188 @@
+/* 03 General Styles */
+:root {
+    --color-gold: #EFC69B;
+    --color-red: #AF1B3F;
+    --color-dark: #473144;
+    --color-light: #F9F7F5; /* A light off-white background */
+    --font-body: Helvetica, Arial, sans-serif;
+    --font-headline: 'Lora', Impact, serif;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-dark);
+    background-color: var(--color-light);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-headline);
+    color: var(--color-red);
+    font-weight: 700;
+}
+
+a {
+    color: var(--color-red);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* 07 Accessibility - Skip to Content */
+.skiptocontent a {
+    position: absolute;
+    top: -40px; /* Off-screen */
+    left: 0;
+    background: var(--color-red);
+    color: white;
+    padding: 8px;
+    z-index: 100;
+}
+
+.skiptocontent a:focus {
+    top: 0; /* On-screen when focused */
+}
+
+/* 05 Finish Styling the Header */
+
+header {
+    background-color: var(--color-gold);
+    padding: 20px 0;
+}
+
+.site-title {
+    font-size: 3em;
+    text-align: center;
+    color: var(--color-dark);
+    padding-bottom: 20px;
+    margin: 0; /* Remove default margin */
+}
+
+nav {
+    border-top: 1px solid var(--color-dark);
+    border-bottom: 1px solid var(--color-dark);
+    padding: 15px 0; /* Increase height/padding */
+    max-width: 900px; /* Limit nav width */
+    margin: 0 auto; /* Center the navigation block */
+}
+
+/* 04 Grid 1: Navigation Grid */
+.main-nav {
+    display: grid;
+    /* 3 columns wide enough to fit the text (approx 100px each) */
+    grid-template-columns: 100px 100px 100px;
+    justify-content: end; /* Align the grid to the right side of the nav container */
+    justify-items: end; /* Align items within their grid cells to the right */
+    padding-right: 20px; /* Add some space from the right edge of the nav container */
+}
+
+.main-nav a {
+    font-size: 1.1em;
+    font-family: var(--font-headline);
+    color: var(--color-dark);
+    text-transform: uppercase;
+    padding: 5px 0;
+}
+
+/* Main Layout */
+#maincontent {
+    max-width: 1200px; /* Max width for the whole content area */
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* 04 Grid 2: Main Body Layout Grid (Articles on left, Filters on right) */
+.main-content-grid {
+    display: grid;
+    /* Two columns: wide for articles, narrow for filters */
+    grid-template-columns: 3fr 1fr;
+    gap: 40px;
+}
+
+.filters-box {
+    background-color: white;
+    border: 1px solid var(--color-gold);
+    padding: 20px;
+}
+
+/* Article Styling */
+article {
+    border: 1px solid var(--color-dark);
+    background-color: white;
+    margin-bottom: 30px;
+    padding: 20px;
+}
+
+/* 04 Grid 3: Article Content Grid (Details on left, Content on right) */
+.article-details-grid {
+    display: grid;
+    /* Two columns: narrow for details, wide for content */
+    grid-template-columns: 150px 1fr;
+    gap: 20px;
+}
+
+.details-left {
+    text-align: right;
+    border-right: 1px dashed var(--color-gold);
+    padding-right: 15px;
+}
+
+.content-right h2 {
+    margin-top: 0;
+    color: var(--color-red);
+}
+
+.article-date {
+    /* To make the date stand out visually and semantically */
+    display: block;
+    font-style: italic;
+    font-size: 1.1em;
+    color: var(--color-red);
+    font-weight: bold;
+    margin: 5px 0 10px;
+}
+
+.author-name {
+    font-style: italic;
+}
+
+figure {
+    float: right;
+    margin: 0 0 15px 15px;
+}
+
+figure img {
+    max-width: 150px;
+    height: auto;
+    display: block;
+    border: 3px solid var(--color-gold);
+}
+
+.read-more {
+    display: inline-block;
+    background-color: var(--color-red);
+    color: white;
+    padding: 5px 10px;
+    margin-top: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: var(--color-dark);
+    color: white;
+    margin-top: 20px;
+}
