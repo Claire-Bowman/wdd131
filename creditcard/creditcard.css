@@ -1,0 +1,123 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f3f3f3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Main Form Grid */
+.card-form {
+  display: grid;
+  grid-template-areas:
+    "front"
+    "back"
+    "button";
+  justify-items: center;
+  gap: 1.5rem;
+  position: relative;
+}
+
+/* Shared Card Styling */
+.card {
+  width: 360px;
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  display: grid;
+  gap: 0.6rem;
+}
+
+/* Card Front */
+.card-front {
+  background-color: #e5e5e5;
+  z-index: 2;
+  position: relative;
+}
+
+.card-front .total {
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+
+.card-image {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+/* Card Back */
+.card-back {
+  background-color: #d9d9d9;
+  position: relative;
+  top: -150px;   
+  left: 120px;   
+  z-index: 1;
+  padding-top: 0;
+}
+
+.black-bar {
+  background-color: #333;
+  height: 45px;
+  width: 100%;
+  border-radius: 4px 4px 0 0;
+  margin-bottom: 1.5rem;
+}
+
+/* CVV field */
+.cvv-field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;  
+  padding: 0 1rem 1rem;
+}
+
+.cvv-field input {
+  width: 80px;  
+}
+
+input {
+  padding: 8px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  width: 100%;
+}
+
+/* Card holder + expiration layout */
+.holder-exp {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.2rem;
+}
+
+.holder, .expiration {
+  flex: 1;
+}
+
+.exp-inputs {
+  display: flex;
+  gap: 0.3rem;
+}
+
+/* Button */
+button {
+  padding: 8px 18px;
+  border: 1px solid #333;
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: 0.2s;
+}
+
+button:hover {
+  background-color: #f0f0f0;
+}
