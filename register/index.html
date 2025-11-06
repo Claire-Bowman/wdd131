@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form </title>
+    <link rel="stylesheet" href="register.css">
+    <script src="register.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Event Registration</h1>
+    </header>
+
+    <main>
+        <form id="registration">
+            <h2>Adult Information</h2>
+            <fieldset>
+                <div class="item">
+                    <label for="adult_name">Adult First Name</label>
+                    <input id="adult_name" type="text" name="adult_name" required>
+                </div>
+                <div class="item">
+                    <label for="adult_email">Email</label>
+                    <input id="adult_email" type="email" name="adult_email" required>
+                </div>
+            </fieldset>
+
+            <h2>Participants</h2>
+            <fieldset id="participants">
+                <legend>Registration Details</legend>
+
+                <section class="participant1">
+                    <p>Participant 1</p>
+                    <div class="item">
+                        <label for="fname1">First Name</label>
+                        <input id="fname1" type="text" name="fname1" value="" required />
+                    </div>
+                    <div class="item activities">
+                        <label for="activity1">Activity</label>
+                        <select id="activity1" name="activity1">
+                            <option selected value="">Choose Activity</option>
+                            <option value="Standard">Standard - $50</option>
+                            <option value="Premium">Premium - $100</option>
+                            <option value="VIP">VIP - $150</option>
+                        </select>
+                    </div>
+                    <div class="item hidden">
+                        <label for="fee1">Fee</label>
+                        <input id="fee1" type="number" name="fee1" value="50" />
+                    </div>
+                </section>
+                
+                <button type="button" id="add">Add Participant</button>
+
+            </fieldset>
+
+            <button type="submit" id="submitButton">Submit Registration</button>
+        </form>
+
+        <div id="summary" style="display: none;">
+            <h2>Registration Successful!</h2>
+            </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Event Registration</p>
+    </footer>
+</body>
+</html>
