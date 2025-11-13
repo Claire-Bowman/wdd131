@@ -1,0 +1,309 @@
+/* Import Google Fonts - Using 'Permanent Marker' as an accessible alternative to 'Amatic SC' */
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+/* --- 03 Global Variables --- */
+:root {
+    --primary-color: #1B98E0; /* Bright Blue */
+    --secondary-color: #59c3c3; /* Teal (Matches the header color in your image) */
+    --text-dark: #333;
+    --text-light: #ebebeb;
+    --primary-font: Arial, Helvetica, sans-serif;
+    --secondary-font: 'Permanent Marker', cursive; /* Chosen accessible alternative */
+    --breakpoint-medium: 600px;
+    --breakpoint-large: 960px;
+    --star-color-full: gold;
+    --star-color-empty: #ccc;
+}
+
+/* --- Global Styles & Reset --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--primary-font);
+    color: var(--text-dark);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h1, h2, h3 {
+    font-family: var(--secondary-font);
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+/* Responsive Image Rule (Step 03) */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* --- Header & Logo --- */
+.site-header {
+    background-color: var(--secondary-color);
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-light);
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.site-header h1 {
+    color: var(--text-light);
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+/* --- Main Content Layout (Mobile Default) --- */
+.site-main {
+    padding: 1rem;
+    flex-grow: 1;
+    max-width: var(--breakpoint-large);
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* Ensure content stacks vertically */
+}
+
+/* --- Search Form --- */
+.search-section {
+    margin-bottom: 1.5rem;
+}
+
+.search-form {
+    display: flex;
+    gap: 0.5rem;
+}
+
+#search-input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex-grow: 1;
+    font-style: italic; /* Match wireframe style */
+}
+
+.search-button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-button:hover {
+    background-color: #147ab3;
+}
+
+/* --- Recipe Card (Mobile Default) --- */
+.recipe-card {
+    display: flex;
+    flex-direction: column; 
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 1.5rem;
+}
+
+.recipe-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.recipe-details {
+    padding: 1rem;
+}
+
+/* 03 Mobile: Hide description on small screens */
+.recipe-description {
+    display: none; 
+}
+
+.recipe-tags {
+    margin-bottom: 0.5rem;
+}
+
+.recipe-tag {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.2rem 0.6rem;
+    margin-right: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8em;
+    text-transform: capitalize;
+}
+
+.recipe-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.9em;
+}
+
+.recipe-meta p {
+    background-color: #f4f4f4;
+    padding: 0.3rem 0.5rem;
+    border-radius: 4px;
+}
+
+.ingredients-heading {
+    margin-top: 1rem;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.2rem;
+}
+
+.ingredients-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0.5rem;
+}
+
+.ingredients-list li {
+    padding: 0.25rem 0;
+    border-bottom: 1px dotted #ccc;
+}
+.ingredients-list li:last-child {
+    border-bottom: none;
+}
+
+/* --- Star Rating Styling (Accessible Implementation) --- */
+.recipe-rating {
+    margin-bottom: 0.5rem;
+}
+
+.rating {
+    display: inline-block;
+    font-size: 1.2rem;
+    font-family: 'Arial', sans-serif; 
+}
+
+.rating > span {
+    display: inline-block;
+    width: 1em; 
+    text-align: center;
+}
+
+.icon-star { color: var(--star-color-full); }
+.icon-star-empty { color: var(--star-color-empty); }
+
+/* Half Star Visual Trick */
+.icon-star-half {
+    position: relative;
+    color: var(--star-color-empty);
+    background: linear-gradient(90deg, var(--star-color-full) 50%, transparent 50%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-shadow: 0 0 1px var(--star-color-empty);
+    text-shadow: 0 0 1px var(--star-color-empty);
+}
+
+
+/* --- Footer --- */
+.site-footer {
+    padding: 1rem;
+    text-align: center;
+    background-color: var(--text-dark);
+    color: var(--text-light);
+    margin-top: 2rem;
+}
+
+.social {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 0.5rem;
+}
+
+.social img {
+    width: 24px;
+    height: 24px;
+    filter: invert(100%);
+}
+
+.copyright {
+    font-size: 0.8em;
+}
+
+.attribution {
+    font-size: 0.6em; /* Minimize attribution size (Step 02) */
+    margin-top: 1rem;
+}
+
+.attribution a {
+    color: #aaa;
+    text-decoration: none;
+}
+
+
+/* ========================================================= */
+/* --- 04 Responsive Design (Media Queries) --- */
+/* ========================================================= */
+
+/* --- Medium Screens (600px and up) --- */
+@media screen and (min-width: 600px) {
+    /* Change flex direction from column to row */
+    .recipe-card {
+        flex-direction: row; 
+    }
+
+    .recipe-image {
+        max-width: 40%; 
+        height: auto;
+    }
+
+    .recipe-details {
+        max-width: 60%; 
+        padding: 1.5rem;
+    }
+
+    /* Show description on wider screens (Step 03) */
+    .recipe-description {
+        display: block; 
+        margin-bottom: 1rem;
+        color: #555;
+    }
+}
+
+/* --- Large Screens (960px and up) --- */
+@media screen and (min-width: 960px) {
+    /* Set a max width for the entire page content */
+    .site-main {
+        padding: 2rem 1rem;
+    }
+
+    /* Further adjust layout for very wide screens */
+    .recipe-card {
+        gap: 20px;
+    }
+
+    .recipe-image {
+        max-width: 30%; /* Image takes less space on large screens */
+    }
+
+    .recipe-details {
+        max-width: 70%;
+    }
+}
