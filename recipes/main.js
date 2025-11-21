@@ -35,15 +35,16 @@ function getRandomListEntry(list) {
  */
 function ratingTemplate(rating) {
     const totalStars = 5;
+    // Round to the nearest half star
     const roundedRating = Math.round(rating * 2) / 2;
     const fullStars = Math.floor(roundedRating);
     const halfStar = roundedRating % 1 !== 0; 
     const emptyStars = totalStars - fullStars - (halfStar ? 1 : 0);
-  
+ 
     let starsHtml = "";
     // Using '★' and '☆' characters for visual representation
     const createStar = (className, char) => `<span aria-hidden="true" class="${className}">${char}</span>`;
-  
+ 
     // Output filled stars
     for (let i = 0; i < fullStars; i++) {
       starsHtml += createStar("icon-star", "★");
@@ -76,9 +77,9 @@ function ratingTemplate(rating) {
  * @returns {string} The HTML string for the tags list.
  */
 function tagsTemplate(tags) {
-	// loop through the tags list and transform the strings to HTML
-	const html = `<div class="recipe-tags">${tags.map(tag => `<span class="recipe-tag">${tag}</span>`).join("")}</div>`;
-	return html;
+    // loop through the tags list and transform the strings to HTML
+    const html = `<div class="recipe-tags">${tags.map(tag => `<span class="recipe-tag">${tag}</span>`).join("")}</div>`;
+    return html;
 }
 
 /**
@@ -127,7 +128,7 @@ function recipeTemplate(recipe) {
  * @param {Array<object>} recipeList - The list of recipe objects to display.
  */
 function renderRecipes(recipeList) {
-	// get the element we will output the recipes into
+    // get the element we will output the recipes into
     const recipeContainer = document.querySelector(".recipe-display");
     
     if (!recipeContainer) {
@@ -135,16 +136,24 @@ function renderRecipes(recipeList) {
         return; 
     }
 
+    // Clear previous results or show 'not found' message
     if (recipeList.length === 0) {
         recipeContainer.innerHTML = "<p>No recipes found matching your search criteria.</p>";
+        // Update the heading to reflect the lack of results or current view
+        const recipeSectionHeading = document.querySelector(".recipe-section h2");
+        if(recipeSectionHeading) recipeSectionHeading.textContent = "Search Results";
         return;
     }
     
-	// use the recipeTemplate function to transform our recipe objects into recipe HTML strings
+    // use the recipeTemplate function to transform our recipe objects into recipe HTML strings
     const recipeHtml = recipeList.map(recipe => recipeTemplate(recipe)).join("");
 
-	// Set the HTML strings as the innerHTML of our output element.
+    // Set the HTML strings as the innerHTML of our output element.
     recipeContainer.innerHTML = recipeHtml;
+
+    // Update the heading to reflect the content
+    const recipeSectionHeading = document.querySelector(".recipe-section h2");
+    if(recipeSectionHeading) recipeSectionHeading.textContent = recipeList.length > 1 ? "Search Results" : "Featured Recipe";
 }
 
 function init() {
@@ -153,7 +162,7 @@ function init() {
   // render the recipe with renderRecipes.
   renderRecipes([recipe]); // Pass single recipe as an array for renderRecipes
   
-  // Set the current year in the footer (from previous step's requirement)
+  // Set the current year in the footer
   const currentYearElement = document.getElementById('current-year');
   if (currentYearElement) {
     currentYearElement.textContent = new Date().getFullYear();
@@ -179,7 +188,9 @@ function filterRecipes(query) {
     const filteredList = recipes.filter(recipe => {
         if (recipe.name.toLowerCase().includes(lowerCaseQuery)) return true;
         if (recipe.description.toLowerCase().includes(lowerCaseQuery)) return true;
+        // Check if any tag includes the query (using Array.find)
         if (recipe.tags.find((item) => item.toLowerCase().includes(lowerCaseQuery))) return true;
+        // Check if any ingredient includes the query (using Array.find)
         if (recipe.recipeIngredient.find((item) => item.toLowerCase().includes(lowerCaseQuery))) return true;
         return false;
     });
