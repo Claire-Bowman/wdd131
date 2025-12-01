@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FITNESS-LOG | Log Session</title>
     <link rel="stylesheet" href="styles/main.css">
-    <script type="module" defer src="js/main.js"></script>
-    </head>
+</head>
 <body>
     <header>
         <nav>
@@ -73,6 +72,7 @@
         <p>&copy; <span id="currentyear"></span> FITNESS-LOG | Last Modified: <span id="lastmodified"></span></p>
     </footer>
 
+    <script type="module" src="js/main.js"></script>
     <script>
         document.getElementById('currentyear').textContent = new Date().getFullYear();
         document.getElementById('lastmodified').textContent = document.lastModified;

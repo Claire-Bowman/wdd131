@@ -1,8 +1,8 @@
-// Imports from ES Modules
-import { workoutData, addWorkout, calculateTotalWorkouts, getPersonalBest } from './data.js';
-import { renderHistoryTable, displayMessage, renderDashboardSummary } from './view.js';
+// js/main.js
+import { workoutData, addWorkout, calculateTotalWorkouts, getPersonalBest, calculateLast30DaysActivity, prepareChartData } from './data.js';
+import { renderHistoryTable, displayMessage, renderDashboardSummary, renderActivityPanel } from './view.js';
 
-// Select the form element
+// Select the form element (for log-workout.html)
 const form = document.getElementById('workout-form');
 
 // --- Initialization Logic ---
@@ -15,12 +15,19 @@ function initializePage() {
     // Logic for the Dashboard Page
     if (document.getElementById('dashboard-summary')) {
         const total = calculateTotalWorkouts();
-        const bestLift = getPersonalBest('strength'); // Example usage of Array Method
-        renderDashboardSummary(total, bestLift);
+        
+        const bestStrength = getPersonalBest('strength'); 
+        const bestCardio = getPersonalBest('cardio'); 
+        
+        renderDashboardSummary(total, bestStrength, bestCardio);
+
+        const recentCount = calculateLast30DaysActivity(workoutData);
+        const chartData = prepareChartData(workoutData);
+        renderActivityPanel(recentCount, chartData);
     }
 }
 
-// --- Event Handler Logic ---
+// --- Event Handler Logic (DOM Interaction & Conditional Branching) ---
 if (form) {
     form.addEventListener('submit', function(event) {
         event.preventDefault();
@@ -28,13 +35,13 @@ if (form) {
         // 1. Collect form data
         const date = document.getElementById('date').value;
         const name = document.getElementById('exercise-name').value.trim();
-        const type = document.querySelector('input[name="workout-type"]:checked').value;
+        const typeElement = document.querySelector('input[name="workout-type"]:checked');
+        const type = typeElement ? typeElement.value : '';
         const value = parseFloat(document.getElementById('metric-value').value);
         const units = document.getElementById('units').value.trim();
         
         // 2. Conditional Branching (Validation)
-        // Check if value is a valid positive number
-        if (isNaN(value) || value <= 0 || name === '' || date === '') {
+        if (isNaN(value) || value <= 0 || name === '' || date === '' || type === '' || units === '') {
             displayMessage("Error: Please ensure all fields are filled correctly and the result is a positive number.", true);
             return; // Stops the function if validation fails
         }
@@ -48,15 +55,16 @@ if (form) {
             units
         };
 
-        // 4. Add data (data.js) and update view (view.js)
-        addWorkout(newWorkout); // Adds new Object to the Array
-        renderHistoryTable(workoutData); // Re-renders table with new data
+        // 4. Add data and update view
+        addWorkout(newWorkout); 
+        renderHistoryTable(workoutData); 
         
-        // Provide user feedback
-        displayMessage("Workout logged successfully! Go to Dashboard to see your stats update.", false);
+        displayMessage("Workout logged successfully!", false);
         
-        // Clear the form
         form.reset();
+        
+        // Re-initialize the dashboard panels to show updated stats/chart
+        initializePage(); 
     });
 }
 

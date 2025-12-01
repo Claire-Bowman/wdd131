@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FITNESS-LOG | Dashboard</title>
     <link rel="stylesheet" href="styles/main.css">
-    <script type="module" defer src="js/main.js"></script>
     </head>
 <body>
     <header>
@@ -29,18 +28,13 @@
             <div class="dashboard-panel metrics-panel">
                 <h2>Current Stats</h2>
                 <div id="dashboard-summary">
-                    <p>Total Workouts Logged: **[JS: Total Workouts]**</p>
-                    <p>Personal Best Lift/Run: **[JS: Highest Value]**</p>
-                    <p>Average Daily Activity: **[JS: Average]**</p>
-                </div>
+                    </div>
             </div>
 
             <div class="dashboard-panel chart-panel">
-                <h2>Last 30 Days Activity</h2>
                 <div id="progress-chart">
-                    
-                </div>
-                <p class="small-text">Visualizing your progress promotes consistency.</p>
+                    <h2>Last 30 Days Activity</h2>
+                    </div>
             </div>
         </section>
     </main>
@@ -49,7 +43,11 @@
         <p>&copy; <span id="currentyear"></span> FITNESS-LOG | Last Modified: <span id="lastmodified"></span></p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    
+    <script type="module" src="js/main.js"></script>
     <script>
+        // Non-module script for basic footer dates
         document.getElementById('currentyear').textContent = new Date().getFullYear();
         document.getElementById('lastmodified').textContent = document.lastModified;
     </script>
