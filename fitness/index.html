@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FITNESS-LOG | Dashboard</title>
+    <link rel="stylesheet" href="styles/main.css">
+    </head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Home (Dashboard)</a>
+            <a href="log-workout.html">Log Workout / History</a>
+        </nav>
+    </header>
+    
+    <main>
+        <h1>Welcome Back, Fitness Tracker!</h1>
+        <p>Your centralized hub for tracking progress and achieving your goals. Stay consistent!</p>
+        
+        <section id="dashboard-layout">
+            <div class="dashboard-panel cta-panel">
+                <h2>Ready to Sweat?</h2>
+                <p>Record your session now to keep your streak going.</p>
+                <a href="log-workout.html" class="cta-button">Log New Workout</a>
+            </div>
+
+            <div class="dashboard-panel metrics-panel">
+                <h2>Current Stats</h2>
+                <div id="dashboard-summary">
+                    <p>Total Workouts Logged: **[JS: Total Workouts]**</p>
+                    <p>Personal Best Lift/Run: **[JS: Highest Value]**</p>
+                    <p>Average Daily Activity: **[JS: Average]**</p>
+                </div>
+            </div>
+
+            <div class="dashboard-panel chart-panel">
+                <h2>Last 30 Days Activity</h2>
+                <div id="progress-chart">
+                    
+                </div>
+                <p class="small-text">Visualizing your progress promotes consistency.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="currentyear"></span> FITNESS-LOG | Last Modified: <span id="lastmodified"></span></p>
+    </footer>
+
+    <script type="module" src="js/main.js"></script>
+    <script>
+        // Non-module script for basic footer dates (good practice)
+        document.getElementById('currentyear').textContent = new Date().getFullYear();
+        document.getElementById('lastmodified').textContent = document.lastModified;
+    </script>
+</body>
+</html>
