@@ -54,7 +54,7 @@ export function renderActivityPanel(recentCount, activityData) {
     panelElement.innerHTML = `
         <h2>Last 30 Days Activity</h2>
         <p>You have logged <strong>${recentCount}</strong> workouts in the last 30 days.</p>
-        
+        <p>Last week this was your activity level.</p>
         <div class="chart-container">
             <canvas id="activityChart"></canvas>
         </div>
