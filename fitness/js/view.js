@@ -93,7 +93,7 @@ function drawActivityChart(activityData) {
             scales: {
                 y: {
                     beginAtZero: true,
-                    suggestedMax: Math.max(...data, 2), // Adjust max dynamically
+                    suggestedMax: Math.max(...data, 2), 
                     title: { display: true, text: 'Workouts' }
                 }
             },

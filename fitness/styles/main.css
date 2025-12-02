@@ -16,7 +16,7 @@
 /* 3. Global Styles */
 body {
     font-family: var(--paragraph-font);
-    background-color: #f8f9fa; /* Slight off-white background */
+    background-color: #f8f9fa; 
     color: var(--text-color-dark);
     margin: 0;
     padding: 0;
@@ -69,21 +69,20 @@ nav a:hover {
 /* Call to Action Button */
 .cta-button {
     display: inline-block;
-    background-color: var(--secondary-color); /* Light Sage */
+    background-color: var(--secondary-color); 
     color: var(--text-color-dark);
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
     font-weight: 700;
     transition: background-color 0.3s ease, border-color 0.3s ease;
-    /* Border added for visual separation on Home Page */
     border: 2px solid var(--primary-color); 
 }
 
 .cta-button:hover {
     background-color: var(--primary-color);
     color: white;
-    border-color: white; /* Change border on hover */
+    border-color: white; 
 }
 
 /* History Table Styles */
@@ -191,7 +190,7 @@ nav a:hover {
     box-sizing: border-box; 
 }
 
-/* Fix for Radio Button Alignment (Moving Options to separate line) */
+/* Button Alignment */
 #workout-form > div {
     margin-top: 5px;
     padding: 5px 0;
